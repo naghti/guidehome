@@ -1,0 +1,29 @@
+.input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+    border-radius: 4px;
+    height: 40px;
+}
+.input__input{
+    background: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 12px 6px;
+}
+.input__icon{
+    width: 24px;
+    height: 24px;
+    margin: 8px;
+}
+.input__iconBox{
+}
+.input__close{
+    margin: 0 8px;
+    cursor: pointer;
+}
+.input__closeBox{
+}

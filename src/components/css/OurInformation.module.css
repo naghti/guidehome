@@ -1,0 +1,24 @@
+.ourInformation{
+    border-top: 1px solid #e6e6e6;
+    width: 100%;
+}
+.ourInformation__title{
+    padding: 8px 20px;
+}
+.ourInformation__titleText{
+    font-size: 13px;
+    color: #929292;
+}
+.ourInformation__list{
+    display: flex;
+    padding: 0 0 0 10px;
+    overflow-x: auto;
+}
+.ourInformation__list::-webkit-scrollbar {
+    height: 7px;
+    background-color: white;
+}
+.ourInformation__list::-webkit-scrollbar-thumb {
+    height: 7px;
+    background-color: rgb(136,136,136);
+}

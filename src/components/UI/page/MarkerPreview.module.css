@@ -1,0 +1,34 @@
+.markerPreview{
+    box-shadow: inset 0 -1px #e8eaed;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+.markerPreview__text{}
+.markerPreview__name{
+    margin-bottom: 0;
+    color: #202124;
+    font-size: 18px;
+}
+.markerPreview__dopInfo{
+    margin-bottom: 0;
+    color: #70757a;
+    font-size: 13px;
+    line-height: 1.2;
+}
+.markerPreview__photoBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80px;
+    max-height: 80px;
+    overflow: hidden;
+    border-radius: 7px;
+}
+.markerPreview__photo {
+    height: 90px;
+    width: 90px;
+    object-fit: cover;
+    background: rgb(214,214,214);
+}

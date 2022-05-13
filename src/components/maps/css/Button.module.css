@@ -1,0 +1,11 @@
+.Button{
+    cursor: pointer;
+    z-index: 1;
+    background: hsla(0,0%,100%,.85);
+    padding: 8px 0;
+    border-radius: 0 4px 4px 0;
+    text-align: center;
+    box-shadow: 0 1px 3px 0 rgb(38 38 38 / 50%);
+    color: #262626;
+    margin-top: 14px;
+}

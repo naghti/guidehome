@@ -1,0 +1,31 @@
+.section{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 5px;
+    flex-direction: column;
+}
+.section__image{
+    width: 32px;
+}
+.section__imageBox{
+    cursor: pointer;
+    box-shadow: 0 0 0 1px #e6e6e6;
+    border-radius: 50%;
+    width: 64px!important;
+    position: relative;
+    height: 64px!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.section__text{
+    color: #929292;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 400;
+    font-family: "Suisse Intl";
+    max-width: 64px;
+}

@@ -61,6 +61,8 @@ const changeMapLanguage = (map) => {
           ]);
       }
   });
+  state.changeLoader(false)
+
 };
 
 const PlaceMap = observer(({coordinats,id,to}) => {

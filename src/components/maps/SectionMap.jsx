@@ -83,6 +83,7 @@ const SectionMap = observer(({coordinats,section}) => {
                 ]);
             }
         });
+        state.changeLoader(false)
     };
 
   return (

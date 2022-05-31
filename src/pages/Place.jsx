@@ -12,6 +12,7 @@ const Place =  observer(() => {
     let [loading,setLoading] = useState(true)
     const [place,setPlace] = useState({})
     useEffect(() => {
+        state.changeLoader(true)
         fetchPlace()
     }, [])
     async function fetchPlace(){

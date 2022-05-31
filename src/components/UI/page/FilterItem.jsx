@@ -5,11 +5,12 @@ import {observer} from "mobx-react-lite";
 
 const FilterItem = observer(({text,changeFilter}) => {
     let [active,setActive] = useState(false)
+    console.log([text,state.markersFilt,state.markersFiltCountry])
     return (
         <>
             <div
                 className={
-                    state.markersFilt == text ? classes.sectionMarkers__filterItem_active : classes.sectionMarkers__filterItem
+                    (state.markersFilt || state.markersFiltCountry) == text ? classes.sectionMarkers__filterItem_active : classes.sectionMarkers__filterItem
                 }
                 onClick={() => {
                     setActive(!active)

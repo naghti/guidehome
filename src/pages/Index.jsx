@@ -10,6 +10,7 @@ const Index = observer(() => {
     const [sections,setSections] = useState([])
     const [coordinats,setCoordinats] = useState([])
     useEffect(() => {
+        state.changeLoader(true)    
         fetchInfo()
     }, [])
     async function fetchInfo(){

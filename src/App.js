@@ -6,14 +6,33 @@ import Section from "./pages/Section";
 import Place from "./pages/Place";
 import Photos from "./pages/Photos";
 import React, { Component }  from 'react';
+import Loader from './components/Loader';
+import state from './state/state';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { observer } from 'mobx-react-lite';
 
-let App = () => {
+let App = observer(() => {
   if (window.innerWidth < 600){
     var meni_1 = 'http://m.accessible-city.ru';
     window.location.href = meni_1;
   }
   return (
     <div className="App" style={{display:'flex',flexWrap:'wrap',width:'100%'}}>
+        <TransitionGroup>
+          {
+            state.loader
+                ?
+                <CSSTransition
+                    key={2}
+                    timeout={200}
+                    classNames="item"
+                >
+                    <Loader/>
+                </CSSTransition>
+                :
+                <></>
+          }
+        </TransitionGroup>
         <Router>
             <Routes>
                 <Route path='/' element={<Index/>} />
@@ -25,6 +44,6 @@ let App = () => {
         </Router>
     </div>
   );
-}
+})
 
 export default App;

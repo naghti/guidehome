@@ -16,7 +16,7 @@ const MapButtons = ({clouse,to}) => {
                     :
                         <></>
             }
-            <WrapButton/>
+            {/* <WrapButton/> */}
         </div>
     );
 };

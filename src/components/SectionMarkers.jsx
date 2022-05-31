@@ -6,28 +6,48 @@ import Search from "./Search";
 import state from "../state/state";
 
 const SectionMarkers = ({markers,to}) => {
+    console.log(markers)
     let subsections = new Set();
+    let cities = new Set();
     markers.map(marker => {
         subsections.add(marker['под-раздел'])
+        cities.add(marker['город'])
     })
     let subsectionsArr = []
+    let citiesArr = []
     for (let subsection of subsections) subsectionsArr.push(subsection)
+    for (let city of cities) citiesArr.push(city)
 
-    let [filter,setFilter] = useState(true)
-    function changeFilter (select){
-        if (select == filter){
-            setFilter(true)
+    let [filterSubsection,setFilterSubsection] = useState(true)
+    let [filterCity,setFilterCity] = useState(true)
+
+    function changeFilterSubsection (select){
+        if (select == filterSubsection){
+            setFilterSubsection(true)
             state.changeMarkersFilt(true)
         }else{
             state.changeMarkersFilt(select)
-            setFilter(select)
+            setFilterSubsection(select)
         }
     }
+    
+    function changeFilterCity (select){
+        console.log(filterCity)
+        if (select == filterCity){
+            setFilterCity(true)
+            state.changeMarkersFiltCountry(true)
+        }else{
+            state.changeMarkersFiltCountry(select)
+            setFilterCity(select)
+        }
+    }
+
     const markersFilter = (marker) => {
-        if (filter == true){
+        if ((filterSubsection == true) && (filterCity == true)){
             return marker
         }else{
-            return marker['под-раздел'] == filter
+
+            return (marker['под-раздел'] == filterSubsection) || (marker['город'] == filterCity) 
         }
     }
     return (
@@ -38,7 +58,14 @@ const SectionMarkers = ({markers,to}) => {
             <div className={classes.sectionMarkers__filter}>
                 {
                     subsectionsArr.map((subsection,index) => {
-                        return <FilterItem text={subsection} key={index} changeFilter={changeFilter}/>
+                        return <FilterItem text={subsection} key={index} changeFilter={changeFilterSubsection}/>
+                    })
+                }
+            </div>
+            <div className={classes.sectionMarkers__filter}>
+                {
+                    citiesArr.map((city,index) => {
+                        return <FilterItem text={city} key={index} changeFilter={changeFilterCity}/>
                     })
                 }
             </div>

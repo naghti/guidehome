@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import ReactMapboxGl from "react-mapbox-gl";
 import DrawControl from "react-mapbox-gl-draw";
@@ -26,6 +26,7 @@ const IndexMap = observer(({coordinats}) => {
                 ]);
             }
         });
+        state.changeLoader(false)
     };
   return (
       <div>

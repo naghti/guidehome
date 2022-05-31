@@ -10,12 +10,12 @@ const OurInformation = () => {
             url:'https://vk.com/bestroute70'
         },
         {
-            img: 'https://img.icons8.com/ultraviolet/40/000000/feedback.png',
+            img: 'https://sun9-79.userapi.com/s/v1/if2/C5QX82dwQpm6n5mDLzAzyflDeEu8_UB2Cjx6r5mTGnhQHO7DdWQm1KXFXww4Y35_L3noSVMbeEzDNvloBmHClBZU.jpg?size=40x40&quality=96&type=album',
             title: 'Обратная Связь',
             url:'https://quintadb.ru/widgets/cVW4tcGCjcu4kguSo-W6LZ/cWtJvaWObdOzWTWQ8HWOuD'
         },
         {
-            img: 'https://img.icons8.com/ultraviolet/40/000000/add-image.png',
+            img: 'https://sun9-41.userapi.com/s/v1/if2/JZO-J8ia0mhfMu3ecedAlbscPbkDL75CMdYzLAIbC07_rWVC9RQ-Iap9U0eal5N7rxEfEI6kqP9-1APfJpFfKZqo.jpg?size=40x40&quality=96&type=album',
             title: 'Добавить Место',
             url:'https://quintadb.ru/widgets/cVW4tcGCjcu4kguSo-W6LZ/blW4RcGvncNioSW7O0ySoC'
         },

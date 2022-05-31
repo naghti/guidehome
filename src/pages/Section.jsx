@@ -14,6 +14,7 @@ const Section = observer(() => {
     const [markers,setMarkers] = useState([])
     useEffect(() => {
         fetchMarkers()
+        state.changeLoader(true)
     }, [])
     async function fetchMarkers(){
         const responce = await PostService.getSectionMarkers(params.section)

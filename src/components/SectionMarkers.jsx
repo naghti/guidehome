@@ -46,8 +46,12 @@ const SectionMarkers = ({markers,to}) => {
         if ((filterSubsection == true) && (filterCity == true)){
             return marker
         }else{
-
-            return (marker['под-раздел'] == filterSubsection) || (marker['город'] == filterCity) 
+            if((filterSubsection == true) || (filterCity == true)){
+                return (marker['под-раздел'] == filterSubsection) || (marker['город'] == filterCity) 
+            }
+            else{
+                return (marker['под-раздел'] == filterSubsection) && (marker['город'] == filterCity) 
+            }
         }
     }
     return (

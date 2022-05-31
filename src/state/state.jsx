@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 
 class State {
     markersFilt = true;
-    markersFiltCountry = 'Томск';
+    markersFiltCountry = true;
     openMarkersPreview = true;
     openAside = true;
     loader = false

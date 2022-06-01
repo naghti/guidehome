@@ -1,0 +1,14 @@
+.section{
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 44px;
+    margin: 10px 5px;
+    padding: 0px 10px;
+}
+
+.section__image{
+    margin-right: 5px;
+    width: 20px;
+}
+.section__name{}

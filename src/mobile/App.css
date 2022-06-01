@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+@media screen and (max-width: 900px){ 
+  .h5, h5 {
+    font-size: 0.83em;
+  }
+  p,h1,h2,h3,h4,h5{
+    margin-bottom: 0;
+  }
+ }
+a{
+  text-decoration: none;
+}
+
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+.gm-control-active,
+.gm-fullscreen-control
+.gmnoprint,
+.gm-bundled-control,
+.gm-bundled-control-on-bottom{
+  display: none!important;
+}
+.mapboxgl-map{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  overflow-y: hidden;
+}
+.mapboxgl-marker {
+  z-index: 0!important;
+}

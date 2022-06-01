@@ -1,0 +1,21 @@
+.changeCountry{
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    display: flex;
+}
+.changeCountry__imageBox{
+    display: flex;
+    align-items: center;
+}
+.changeCountry__image{
+    width: 60px;
+    margin-right: 20px;
+}
+.changeCountry__textBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.changeCountry__text{
+    font-size: 20px;
+}

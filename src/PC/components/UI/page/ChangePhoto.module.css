@@ -1,0 +1,20 @@
+.changePhoto{
+    position: absolute;
+    bottom: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.changePhoto__changeBtn{
+    background: rgba(0,0,0,.4);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+}
+.changePhoto__changeImg{
+    width: 28px;
+}

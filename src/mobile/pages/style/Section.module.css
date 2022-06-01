@@ -1,0 +1,27 @@
+.section{
+    height: 100vh;
+    width: 100vw;
+}
+.section__header{
+    background: white;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+}
+.section__list{
+    display: flex;
+    overflow-x: scroll;
+    padding: 0 10px;
+
+}
+.section__list::-webkit-scrollbar {
+    width: 7px;
+    display: none;
+    background-color: white;
+}
+.section__list::-webkit-scrollbar-thumb {
+    display: none;
+    width: 7px;
+    background-color: rgb(136,136,136);
+}

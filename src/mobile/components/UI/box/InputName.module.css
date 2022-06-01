@@ -1,0 +1,19 @@
+.inputName{
+    display: flex;
+    width: 100%;
+    background: white;
+    /*justify-content: space-between;*/
+    border-radius: 35px;
+    padding:8px 10px;
+    max-width: 100%;
+    border: 1px solid rgba(0,0,0,.12);
+}
+.inputName__input{
+    border: none;
+    width: 100%;
+    outline:none;
+}
+.inputName__input::placeholder {
+    color: black;
+    font-size: 16px;
+}

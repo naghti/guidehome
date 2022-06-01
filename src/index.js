@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom';
 import AppMobile from './mobile/AppMobile';
 import AppPC from './PC/AppPC';
 import './index.css'
+import statePC from './PC/state/state';
+import stateMobile from './mobile/state/state';
+function success(pos) {
+  var crd = pos.coords;
+  let latitude = crd.latitude;
+  let longitude = crd.longitude;
+  
+  statePC.changeUserGeolocation(latitude,longitude)
+  stateMobile.changeUserGeolocation(latitude,longitude)
+  console.log(`latitudelatitude ${latitude}<> longitude ${longitude}`);
+  console.log(`Плюс-минус ${crd.accuracy} метров.`);
+};
+navigator.geolocation.getCurrentPosition(success);
 ReactDOM.render(
   <React.StrictMode>
   {

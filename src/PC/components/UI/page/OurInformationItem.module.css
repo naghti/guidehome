@@ -1,0 +1,24 @@
+.ourInformationItem{
+    padding: 0 10px 0 0;
+    border: 1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
+    margin: 0 10px 0 0;
+}
+.ourInformationItem__imgBox{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ourInformationItem__img{
+    width: 28px;
+    height: 28px;
+}
+.ourInformationItem__text{
+    color: #262626;
+    font-size: 16px;
+    margin-bottom: 0;
+    width: max-content;
+}

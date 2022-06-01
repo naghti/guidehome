@@ -1,0 +1,5 @@
+.verticalBox{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e8eaed;
+}

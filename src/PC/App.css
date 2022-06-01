@@ -1,0 +1,42 @@
+@font-face
+  {
+    font-family: "Suisse Intl";
+    src: url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.eot");
+    src: url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/88f10bf18a36407ef36bf30bc25a3618.woff2") format("woff2");
+  }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+/* .map-container {
+  height: 100vh;
+  overflow: hidden;
+}
+.mapboxgl-ctrl-bottom-right{
+  display: none;
+}0 */
+.mapboxgl-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}

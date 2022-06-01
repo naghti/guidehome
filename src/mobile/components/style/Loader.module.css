@@ -1,0 +1,13 @@
+.loader{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    background: linear-gradient(45deg,rgba(152,207,195,.7),#56b5b8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader__image{
+    width: 70vw;
+}

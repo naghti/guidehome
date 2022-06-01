@@ -1,0 +1,13 @@
+.photoItem{
+    cursor: pointer;
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin: 0 0 3px;
+}
+.photoItem__photo{
+    width: 100%;
+    object-fit: cover;
+}

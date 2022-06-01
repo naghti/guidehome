@@ -1,0 +1,20 @@
+.chapter{
+    padding: 5px 10px;
+    margin: 0px 5px 10px;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 8px;
+}
+.chapter__name {
+    white-space: nowrap;
+    color: #70757a;
+}
+.chapter_active{
+    padding: 5px 10px;
+    margin: 0px 5px 10px;
+    border-radius: 8px;
+    background: rgba(0,0,0,.12);
+}
+.chapter__name_active {
+    white-space: nowrap;
+    color: white;
+}

@@ -1,0 +1,26 @@
+.index{
+    height: 100vh;
+    width: 100vw;
+}
+.index__header{
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+}
+.index__sectionsBox{
+    display: flex;
+    max-width: 100vw;
+    overflow-x: scroll;
+
+}
+.index__sectionsBox::-webkit-scrollbar {
+    width: 7px;
+    display: none;
+    background-color: white;
+}
+.index__sectionsBox::-webkit-scrollbar-thumb {
+    display: none;
+    width: 7px;
+    background-color: rgb(136,136,136);
+}

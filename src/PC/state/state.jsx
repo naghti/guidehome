@@ -8,7 +8,7 @@ class State {
     openAside = true;
     loader = false
 
-    userGeolocation = {undefined}
+    userGeolocation = undefined
     center = {
         lat: 56.491098,
         lng: 84.962755,

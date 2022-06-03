@@ -6,16 +6,19 @@ import './index.css'
 import statePC from './PC/state/state';
 import stateMobile from './mobile/state/state';
 function success(pos) {
-  var crd = pos.coords;
-  let latitude = crd.latitude;
-  let longitude = crd.longitude;
+  var crd = pos?.coords;
+  let latitude = crd?.latitude;
+  let longitude = crd?.longitude;
   
-  statePC.changeUserGeolocation(latitude,longitude)
-  stateMobile.changeUserGeolocation(latitude,longitude)
-  console.log(`latitudelatitude ${latitude}<> longitude ${longitude}`);
-  console.log(`Плюс-минус ${crd.accuracy} метров.`);
+  if(latitude != undefined && longitude != undefined){
+    statePC.changeUserGeolocation(latitude,longitude)
+    stateMobile.changeUserGeolocation(latitude,longitude)
+  }
 };
-navigator.geolocation.getCurrentPosition(success);
+function error() {
+  alert('Раздрешите доступ к геоданным для отображения вашего местоположения')
+};
+navigator.geolocation.getCurrentPosition(success,error);
 ReactDOM.render(
   <React.StrictMode>
   {

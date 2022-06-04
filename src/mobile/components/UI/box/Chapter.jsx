@@ -3,14 +3,13 @@ import classes from './Chapter.module.css'
 import {observer} from "mobx-react-lite";
 import state from "../../../state/state";
 
-const Chapter = observer(({name}) => {
-    let currentFilter = state.markersFilter == name
+const Chapter = observer(({name,click,active}) => {
     return (
         <div
-            className={ currentFilter ? classes.chapter_active : classes.chapter}
-            onClick={() => state.changeMarkersFilter(name)}
+            className={ active ? classes.chapter_active : classes.chapter}
+            onClick={() => click()}
         >
-            <p className={ currentFilter ? classes.chapter__name_active : classes.chapter__name}>
+            <p className={ active ? classes.chapter__name_active : classes.chapter__name}>
                 {name}
             </p>
         </div>

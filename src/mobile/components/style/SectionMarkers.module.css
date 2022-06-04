@@ -1,6 +1,6 @@
 .sectionMarkers__box{
     position: fixed;
-    bottom: 5px;
+    bottom: 0px;
     z-index: 4;
     min-width: 100vw;
 }
@@ -9,4 +9,5 @@
     width: 100vw;
     overflow-x: scroll;
     padding: 0 10px;
+    padding-bottom: 10px;
 }

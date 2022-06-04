@@ -21,7 +21,7 @@ const Photos = () => {
         console.log(Photos)
         setLoading(!loading)
     }
-
+    
     const slideImages = [
         "https://react-slideshow.herokuapp.com/assets/images/slide_4.jpg",
         "https://react-slideshow.herokuapp.com/assets/images/slide_2.jpg"    ];
@@ -41,7 +41,7 @@ const Photos = () => {
                         name={photos['имя']}
                         route={-1}
                     />
-                    <AliceCarousel infinite disableButtonsControls autoPlay autoPlayInterval="3000">
+                    <AliceCarousel infinite  disableButtonsControls autoPlay autoPlayInterval="3000">
                         {
                             photos['фото'].map(item => (
                                 <img src={item} className={classes.photos__sliderimg} alt="" />

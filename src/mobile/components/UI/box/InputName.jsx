@@ -14,6 +14,8 @@ const InputName = observer(({setInputText,inputText,to,...props}) => {
         setInputText('')
         state.changeBrowsingOpen(false)
         state.changeInputValue(undefined)
+        state.markersFilter(undefined)
+        state.markersFiltCountry(undefined)
     }
     return (
         <div

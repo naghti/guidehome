@@ -26,6 +26,25 @@ class State {
         this.markersFilt = i
     }
     changeMarkersFiltCountry(i){
+        let countries = [
+            {
+                name:'Томск',
+                lat: 56.491098,
+                lng: 84.962755,
+            },
+            {
+                name:'Калининград',
+                lat: 54.71091457793099,
+                lng: 20.496897774419352,
+            },
+        ]
+        countries.map(country => {
+            if(country.name == i)
+            this.center = {
+                lat: country.lat,
+                lng: country.lng,            
+            }
+        })
         this.markersFiltCountry = i
     }
     changeLoader(i){

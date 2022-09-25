@@ -59,16 +59,6 @@ const Section = observer(() => {
                         </Style>
                         <div className={classes.section__list}>
                             {
-                                citiesArr.map(item => (
-                                    <Chapter
-                                        name={item}
-                                        click={() => state.changeMarkersFiltCountry(item)}
-                                        active={state.markersFiltCountry == item}
-                                    />
-                                ))
-                            }
-                            <div style={{height:'36px',width:'10px',background:'red',margin:'0 10px'}}></div>
-                            {
                                 subsectionsArr.map(item => (
                                     <Chapter
                                         name={item}

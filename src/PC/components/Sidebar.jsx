@@ -18,7 +18,6 @@ const Sidebar = ({sections,to}) => {
                 })}
             </div>
             <OurInformation/>
-            <ChangeCountry/>
         </div>
     );
 };

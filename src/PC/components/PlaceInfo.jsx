@@ -8,8 +8,10 @@ import InfoText from "./UI/text/InfoText";
 import InfoIcon from "./UI/icon/InfoIcon";
 import InfoIconMini from "./UI/icon/InfoIconMini";
 import Search from "./Search";
+import { logDOM } from '@testing-library/react';
 const PlaceInfo = ({place,to}) => {
     const router = useNavigate()
+    const description = place['description']
     return (
         <div className={classes.placeInfo}>
             <div className={classes.placeInfo__inputBackground}>
@@ -76,6 +78,24 @@ const PlaceInfo = ({place,to}) => {
                         }
                     </Border>
                 }
+                
+                {
+                    description == 0 || description == null 
+                    ?
+                    <></>
+                    :
+                    <Border style={{padding:'6px 0'}}>
+                        {
+                            JSON.parse(description).map((item,index) =>{
+                                console.log(item)
+                                return <InfoItemMini key={index}>
+                                    <InfoText>{item.name}</InfoText>
+                                </InfoItemMini>
+                            })
+                        }
+                    </Border>
+                }
+                
             </div>
         </div>
     );

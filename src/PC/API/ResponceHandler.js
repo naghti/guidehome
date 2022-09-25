@@ -20,6 +20,7 @@ export default class ResponceHandler {
 
 
     static Marker(responce) {
+        console.log(responce)
         const marker = responce[0]
         let firstBlock = []
         let secondBlock = []
@@ -43,6 +44,7 @@ export default class ResponceHandler {
             'Ширина дверного проема' : 'см',
             'Высота дверного порожка' : 'мм',
         }
+        console.log(marker)
         if(marker['фото'].split(',').length > 1){
             photo = marker['фото'].split(',')[0]
         }else{
@@ -53,12 +55,6 @@ export default class ResponceHandler {
             if(secondBlockItem[item] != undefined && marker[item] != null){
                 secondBlock.push([secondBlockItem[item],marker[item]])
             }
-            if(thirdBlockItem[marker[item]] != undefined && marker[item] != null && item != 'Высота дверного порожка'){
-                thirdBlock.push([thirdBlockItem[marker[item]],item])
-            }
-            if(fourthBlockItem[item] != undefined && marker[item] != null){
-                fourthBlock.push([item,marker[item],fourthBlockItem[item]])
-            }
         })
         let result = {
             id: marker['id'],
@@ -68,7 +64,9 @@ export default class ResponceHandler {
             firstBlock: firstBlock,
             secondBlock: secondBlock,
             thirdBlock: thirdBlock,
-            fourthBlock: fourthBlock
+            fourthBlock: fourthBlock,
+            description: responce[0]['описание'],
+            'путь': responce[0]['путь'],
         }
         return result
     }

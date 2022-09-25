@@ -3,7 +3,7 @@
     height: 100vh;
     position: fixed;
     z-index: 999;
-    background: linear-gradient(45deg,rgba(152,207,195,.7),#56b5b8);
+    background: linear-gradient(45deg,#63acb0cc,#1d3679d7);
     display: flex;
     align-items: center;
     justify-content: center;

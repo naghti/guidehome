@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactMapboxGl from "react-mapbox-gl";
+import ReactMapboxGl, { Feature, Layer } from "react-mapbox-gl";
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 import { Marker } from "react-mapbox-gl";
 import {observer} from "mobx-react-lite";
@@ -19,7 +19,7 @@ const Map = ReactMapboxGl({
     "pk.eyJ1IjoiZmFrZXVzZXJnaXRodWIiLCJhIjoiY2pwOGlneGI4MDNnaDN1c2J0eW5zb2ZiNyJ9.mALv0tCpbYUPtzT7YysA2g"
 });
 
-const PlaceMap = observer(({marker}) => {
+const PlaceMap = observer(({marker,path}) => {
 
     console.log(marker)
     let markeri = {
@@ -46,6 +46,14 @@ const PlaceMap = observer(({marker}) => {
             }
         });
     };
+    const lineLayout = {
+        'line-cap': 'round',
+        'line-join': 'round'
+      };
+      const linePaint = {
+        'line-color': '#4790E5',
+        'line-width': 12,
+      };
   return (
       <div>
           <Map
@@ -82,6 +90,7 @@ const PlaceMap = observer(({marker}) => {
                         />
                     </div>
                 </Marker>
+
               ) : (
                   <div></div>
               )}

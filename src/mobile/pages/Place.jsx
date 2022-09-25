@@ -210,15 +210,15 @@ const Place = observer(() => {
 
                 <VerticalBox>
                     {
-                        sectionMarkers['fourthBlock'].map(item => (
+                        sectionMarkers['description'] == null || sectionMarkers['description'] == 0
+                        ?
+                        <></>
+                        :
+                        JSON.parse(sectionMarkers['description']).map(item => (
                             <SmallListItem>
                                 <Text3c4043>
                                     {
-                                        item[0]
-                                        + " - " +
-                                        item[1]
-                                        +
-                                        item[2]
+                                        item.name
                                     }
                                 </Text3c4043>
                             </SmallListItem>

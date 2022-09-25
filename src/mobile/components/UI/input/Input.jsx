@@ -18,7 +18,7 @@ const Input = ({style}) => {
                 <img
                     src="https://sun4-12.userapi.com/impf/6K_sPNGiicCHWmpXUiqHGXIi0yGb52fURAnQyw/wDRoZvD9fOU.jpg?size=80x80&quality=96&sign=927f1b26f0e3e8ae86a12cde4bd1ffdd&type=album"
                     className={classes.input__imageSettings}
-                    onClick={() => state.changeSetting(true)}
+                    // onClick={() => state.changeSetting(true)}
                 />
             </div>
         </div>

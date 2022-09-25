@@ -18,6 +18,7 @@ const Place =  observer(() => {
     async function fetchPlace(){
         const responce = await PostService.getMarker(params.id)
         setPlace(responce)
+        console.log(responce['путь']);
         setLoading(false)
     }
 
@@ -40,7 +41,7 @@ const Place =  observer(() => {
                             <PlaceInfo place={place} to={params.section}/>
                         </div>
                         <div className={state.openAside ? "col-8" : "col-12"}>
-                            <PlaceMap coordinats={place.coordinats} id={place.id} to={params.section}/>
+                            <PlaceMap coordinats={place.coordinats} path={place['путь']} id={place.id} to={params.section}/>
                         </div>
                     </>
             }

@@ -2,7 +2,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactMapboxGl from "react-mapbox-gl";
+import ReactMapboxGl, { Feature, Layer } from "react-mapbox-gl";
 import DrawControl from "react-mapbox-gl-draw";
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 import { Marker } from "react-mapbox-gl";
@@ -30,7 +30,15 @@ const changeMapLanguage = (map) => {
 
 };
 
-const PlaceMap = observer(({coordinats,id,to}) => {
+const PlaceMap = observer(({coordinats,id,to,path}) => {
+    const lineLayout = {
+        'line-cap': 'round',
+        'line-join': 'round'
+      };
+      const linePaint = {
+        'line-color': '#4790E5',
+        'line-width': 12,
+      };
 if(coordinats == undefined) return <div></div>
   return (
         <div style={{ height: '100vh', width: '100%' }}>
@@ -57,12 +65,20 @@ if(coordinats == undefined) return <div></div>
                     style={{maxWidth:300}}
 
                 >
+                    path == null || path == 0
+                    ?
                     <Marker
                         coordinates={[+coordinats.split(',')[1], +coordinats.split(',')[0]]}
                         anchor="center"
                         >
                         <MapItem id={id} section={to}/>
                     </Marker>
+                    :
+                    <Layer type="line" layout={lineLayout} paint={linePaint}>
+                        <Feature 
+                            coordinates={JSON.parse(path)}
+                        />
+                    </Layer>
                 </div>
             }
 

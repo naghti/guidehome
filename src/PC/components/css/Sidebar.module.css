@@ -21,7 +21,7 @@
 .sidebar__sections{
     padding: 16px 8px;
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
     max-width: 100%;
     flex-wrap: wrap;
 }

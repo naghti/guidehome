@@ -70,12 +70,7 @@ export default class ResponceHandler {
             if(secondBlockItem[item] != undefined && marker[item] != null){
                 secondBlock.push([secondBlockItem[item],marker[item]])
             }
-            if(thirdBlockItem[marker[item]] != undefined && marker[item] != null && item != 'Высота дверного порожка'){
-                thirdBlock.push([thirdBlockItem[marker[item]],item])
-            }
-            if(fourthBlockItem[item] != undefined && marker[item] != null){
-                fourthBlock.push([item,marker[item],fourthBlockItem[item]])
-            }
+
         })
         let result = {
             id: marker['id'],
@@ -86,7 +81,8 @@ export default class ResponceHandler {
             firstBlock: firstBlock,
             secondBlock: secondBlock,
             thirdBlock: thirdBlock,
-            fourthBlock: fourthBlock
+            fourthBlock: fourthBlock,
+            description: marker['описание']
         }
         return result
     }

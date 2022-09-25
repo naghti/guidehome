@@ -6,7 +6,7 @@ const Section = ({src,name,section}) => {
 
     return (
         <div
-            className={classes.section + ' col-6 col-md-4 col-lg-3'}
+            className={classes.section + ' col-6 col-md-4 col-lg-4'}
             onClick={() => router(`/section/${section}`)}
         >
             <div className={classes.section__imageBox}>

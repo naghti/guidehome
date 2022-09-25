@@ -10,8 +10,9 @@ import { ZoomControl } from "react-mapbox-gl";
 import { ScaleControl } from "react-mapbox-gl";
 import { RotationControl } from "react-mapbox-gl";
 import MarkerUserGeolocation from "./MarkerUserGeolocation";
-import activeMarkerPin from '../../../image/activeMarkerPin.png'
 import markerPin from '../../../image/markerPin.png'
+import activeMarkerPin from '../../../image/activeMarkerPin.png'
+
 
 const Map = ReactMapboxGl({
   accessToken:
@@ -40,10 +41,10 @@ const SectionMap = observer(({sectionMarkers}) => {
             return marker
         }else{
             if((state.markersFilter == undefined) || (state.markersFiltCountry == undefined)){
-                return (marker['под-раздел'] == state.markersFilter) || (marker['город'] == state.markersFiltCountry) 
+                return (marker['под-раздел'] == state.markersFilter) 
             }
             else{
-                return (marker['под-раздел'] == state.markersFilter) && (marker['город'] == state.markersFiltCountry) 
+                return (marker['под-раздел'] == state.markersFilter) 
             }
         }
     }
@@ -95,9 +96,9 @@ const SectionMap = observer(({sectionMarkers}) => {
                                   src={
                                       state.sectionActiveMarker == marker["id"]
                                       ?
-                                        activeMarkerPin
+                                          activeMarkerPin
                                       :
-                                        markerPin
+                                          markerPin
                                   }
                                   alt="marker"
                                   style={{ width: 20 }}

@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import ReactMapboxGl from "react-mapbox-gl";
+import ReactMapboxGl, { Feature, Layer, Source } from "react-mapbox-gl";
 import DrawControl from "react-mapbox-gl-draw";
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
-import { Marker } from "react-mapbox-gl";
+import { Marker, GeoJSONLayer } from "react-mapbox-gl";
 import MapItem from "./MapItem";
 import {observer} from "mobx-react-lite";
 import state from "../../state/state";
 import MarkerUserGeolocation from "./MarkerUserGeolocation";
+import { useNavigate } from "react-router-dom";
 
 const Map = ReactMapboxGl({
   accessToken:
@@ -15,8 +16,10 @@ const Map = ReactMapboxGl({
 });
 
 const IndexMap = observer(({coordinats}) => {
+    const router = useNavigate()
     console.log(coordinats)
     const changeMapLanguage = (map) => {
+        
         map.setStyle('mapbox://styles/naght/cl2lhr9pa001j15p6eyhlsm1t')
         map.getStyle().layers.forEach((layer) => {
             if (layer.layout && layer.layout["text-field"]) {
@@ -29,7 +32,22 @@ const IndexMap = observer(({coordinats}) => {
         });
         state.changeLoader(false)
     };
-  return (
+    
+    const lineLayout = {
+        'line-cap': 'round',
+        'line-join': 'round'
+      };
+      const linePaint = {
+        'line-color': '#4790E5',
+        'line-width': 12,
+      };
+
+    const mappedRoute = [
+        [84.91946719493541, 56.4569860199541],
+        [84.97946284222417, 56.46447872308509],
+        [84.95328448396512, 56.47064249701067],
+    ]
+        return (
       <div>
           <Map
               style="mapbox://styles/mapbox/streets-v9" // eslint-disable-line
@@ -46,16 +64,28 @@ const IndexMap = observer(({coordinats}) => {
               <MarkerUserGeolocation/>
               {coordinats != undefined ? (
                   coordinats.map((marker, index) => (
-                      <Marker
+                    marker["путь"] == null
+                    ?
+                    <Marker
                         coordinates={[+marker["координаты"].split(",")[1], +marker["координаты"].split(",")[0]]}
                         anchor="center"
                       >
                         <MapItem id={marker["id"]} section={marker["раздел"]}/>
                       </Marker>
+                    :
+                    <Layer type="line" layout={lineLayout} paint={linePaint}>
+                        <Feature 
+                            coordinates={JSON.parse(marker["путь"])}
+                            onClick={() => router(`/${marker["раздел"]}/${marker["id"]}`)}
+                        />
+                    </Layer>
                   ))
               ) : (
                   <div></div>
               )}
+
+                
+             
           </Map>
       </div>
   );

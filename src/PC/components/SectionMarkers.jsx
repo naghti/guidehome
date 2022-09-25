@@ -66,13 +66,6 @@ const SectionMarkers = ({markers,to}) => {
                     })
                 }
             </div>
-            <div className={classes.sectionMarkers__filter}>
-                {
-                    citiesArr.map((city,index) => {
-                        return <FilterItem text={city} key={index} changeFilter={changeFilterCity}/>
-                    })
-                }
-            </div>
             <div className={classes.sectionMarkers__markers}>
                 {
                     markers

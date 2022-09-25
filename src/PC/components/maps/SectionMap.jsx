@@ -51,7 +51,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactMapboxGl from "react-mapbox-gl";
+import ReactMapboxGl, { Feature, Layer, Source } from "react-mapbox-gl";
 import DrawControl from "react-mapbox-gl-draw";
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 import { Marker } from "react-mapbox-gl";
@@ -67,6 +67,7 @@ const Map = ReactMapboxGl({
 });
 
 const SectionMap = observer(({coordinats,section}) => {
+    console.log(coordinats);
     function filter(marker){
         if (state.markersFilt == true) {
             return true
@@ -86,6 +87,14 @@ const SectionMap = observer(({coordinats,section}) => {
         });
         state.changeLoader(false)
     };
+    const lineLayout = {
+        'line-cap': 'round',
+        'line-join': 'round'
+      };
+      const linePaint = {
+        'line-color': '#4790E5',
+        'line-width': 12,
+      };
 
   return (
         <div style={{ height: '100vh', width: '100%' }}>
@@ -110,6 +119,8 @@ const SectionMap = observer(({coordinats,section}) => {
                 coordinats
                     .filter(marker => filter(marker))
                     .map( (marker,index) => (
+                        marker['путь'] == null
+                        ?
                         <div
                             lat={+marker['координаты'].split(',')[0]}
                             lng={+marker['координаты'].split(',')[1]}
@@ -122,6 +133,28 @@ const SectionMap = observer(({coordinats,section}) => {
                                 <MapItem id={marker['id']} section={section}/>
                             </Marker>
                         </div>
+                        :
+                        <>
+                            <Layer type="line" layout={lineLayout} paint={linePaint}>
+                                <Feature 
+                                    coordinates={JSON.parse(marker["путь"])}
+                                />
+                            </Layer>
+                            {
+                                JSON.parse(marker["путь"]).map(item => {
+                                    return <Marker
+                                         coordinates={[
+                                            +item[0],
+                                            +item[1],
+                                        ]}
+                                         anchor="center"
+                                    >
+                                        <MapItem width={10} id={marker['id']} section={section}/>
+                                    </Marker>
+                                })
+                                
+                            }
+                        </>
                 ))
                 : <div></div>
             }

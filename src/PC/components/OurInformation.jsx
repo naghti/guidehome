@@ -12,7 +12,7 @@ const OurInformation = () => {
         {
             img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/1200px-Telegram_2019_Logo.svg.png',
             title: 'Мой телеграм',
-            url:'https://t.me/pasyukov'
+            url:'https://t.me/Alex_Pasyukov1'
         },
     ]
     return (

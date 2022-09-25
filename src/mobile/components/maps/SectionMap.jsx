@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactMapboxGl from "react-mapbox-gl";
+import ReactMapboxGl, { Feature, Layer, Source } from "react-mapbox-gl";
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 import { Marker } from "react-mapbox-gl";
 import {observer} from "mobx-react-lite";
@@ -59,6 +59,15 @@ const SectionMap = observer(({sectionMarkers}) => {
                 +activeMarker["координаты"].split(",")[1],
                 +activeMarker["координаты"].split(",")[0],
             ]
+    const lineLayout = {
+        'line-cap': 'round',
+        'line-join': 'round'
+        };
+        const linePaint = {
+        'line-color': '#4790E5',
+        'line-width': 12,
+        };
+        
   return (
       <div>
           <Map
@@ -81,7 +90,8 @@ const SectionMap = observer(({sectionMarkers}) => {
                     sectionMarkers
                         .filter(marker => markersFilter(marker))
                         .map((marker,index) => (
-
+                        marker['путь'] == null 
+                        ?
                         <Marker
                           coordinates={[
                               +marker["координаты"].split(",")[1],
@@ -104,7 +114,42 @@ const SectionMap = observer(({sectionMarkers}) => {
                                   style={{ width: 20 }}
                               />
                           </div>
-                      </Marker>
+                        </Marker>
+                        :
+                        <>
+                            <Layer type="line" layout={lineLayout} paint={linePaint}>
+                                <Feature 
+                                    coordinates={JSON.parse(marker["путь"])}
+                                    onClick={() => router(`/${marker["section"]}/${marker["id"]}`)}
+
+                                />
+                            </Layer>
+                            {
+                                JSON.parse(marker["путь"]).map(item => {
+                                    return <Marker
+                                         coordinates={[
+                                            +item[0],
+                                            +item[1],
+                                        ]}
+                                         anchor="center"
+                                    onClick={() => router(`/${marker["section"]}/${marker["id"]}`)}
+
+                                    >
+                                        <div
+                                        >
+                                            <img
+                                                src={
+                                                        markerPin
+                                                }
+                                                alt="marker"
+                                                style={{ width: 10 }}
+                                            />
+                                        </div>
+                                    </Marker>
+                                })
+                                
+                            }
+                        </>
 
                     ))
                 }

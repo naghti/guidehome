@@ -82,7 +82,8 @@ export default class ResponceHandler {
             secondBlock: secondBlock,
             thirdBlock: thirdBlock,
             fourthBlock: fourthBlock,
-            description: marker['описание']
+            description: marker['описание'],
+            path: marker['путь']
         }
         return result
     }

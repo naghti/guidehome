@@ -39,6 +39,7 @@ const PlaceMap = observer(({coordinats,id,to,path}) => {
         'line-color': '#4790E5',
         'line-width': 12,
       };
+      console.log(path)
 if(coordinats == undefined) return <div></div>
   return (
         <div style={{ height: '100vh', width: '100%' }}>
@@ -65,7 +66,7 @@ if(coordinats == undefined) return <div></div>
                     style={{maxWidth:300}}
 
                 >
-                    path == null || path == 0
+                    {path == null || path == 0
                     ?
                     <Marker
                         coordinates={[+coordinats.split(',')[1], +coordinats.split(',')[0]]}
@@ -74,11 +75,28 @@ if(coordinats == undefined) return <div></div>
                         <MapItem id={id} section={to}/>
                     </Marker>
                     :
-                    <Layer type="line" layout={lineLayout} paint={linePaint}>
-                        <Feature 
-                            coordinates={JSON.parse(path)}
-                        />
-                    </Layer>
+                    <>
+                        <Layer type="line" layout={lineLayout} paint={linePaint}>
+                            <Feature 
+                                coordinates={JSON.parse(path)}
+                            />
+                        </Layer>
+                        
+                        {
+                                JSON.parse(path).map(item => {
+                                    return <Marker
+                                         coordinates={[
+                                            +item[0],
+                                            +item[1],
+                                        ]}
+                                         anchor="center"
+                                    >
+                                        <MapItem width={10}/>
+                                    </Marker>
+                                })
+                                
+                            }
+                    </>}
                 </div>
             }
 

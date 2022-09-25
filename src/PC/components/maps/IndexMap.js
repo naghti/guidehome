@@ -17,7 +17,7 @@ const Map = ReactMapboxGl({
 
 const IndexMap = observer(({coordinats}) => {
     const router = useNavigate()
-    console.log(coordinats)
+   
     const changeMapLanguage = (map) => {
         
         map.setStyle('mapbox://styles/naght/cl2lhr9pa001j15p6eyhlsm1t')
@@ -47,6 +47,7 @@ const IndexMap = observer(({coordinats}) => {
         [84.97946284222417, 56.46447872308509],
         [84.95328448396512, 56.47064249701067],
     ]
+    console.log(coordinats);
         return (
       <div>
           <Map
@@ -64,7 +65,7 @@ const IndexMap = observer(({coordinats}) => {
               <MarkerUserGeolocation/>
               {coordinats != undefined ? (
                   coordinats.map((marker, index) => (
-                    marker["путь"] == null
+                    marker["путь"] == null || marker["путь"] == 0
                     ?
                     <Marker
                         coordinates={[+marker["координаты"].split(",")[1], +marker["координаты"].split(",")[0]]}
@@ -73,18 +74,41 @@ const IndexMap = observer(({coordinats}) => {
                         <MapItem id={marker["id"]} section={marker["раздел"]}/>
                       </Marker>
                     :
-                    <Layer type="line" layout={lineLayout} paint={linePaint}>
-                        <Feature 
-                            coordinates={JSON.parse(marker["путь"])}
-                            onClick={() => router(`/${marker["раздел"]}/${marker["id"]}`)}
-                        />
-                    </Layer>
+                    <>
+
+                        <Layer type="line" layout={lineLayout} paint={linePaint}>
+                            <Feature 
+                                coordinates={JSON.parse(marker["путь"])}
+                                onClick={
+                                    () => router(`/${marker["раздел"]}/${marker["id"]}`)
+
+                                }
+                            />
+                        </Layer>
+                        {
+                                JSON.parse(marker["путь"]).map(item => {
+                                    return <Marker
+                                         coordinates={[
+                                            +item[0],
+                                            +item[1],
+                                        ]}
+                                         anchor="center"
+                                         onClick={
+                                             () => router(`/${marker["раздел"]}/${marker["id"]}`)
+
+                                        }
+                                    >
+                                        <MapItem width={10}/>
+                                    </Marker>
+                                })
+                                
+                            }
+                    </>
                   ))
               ) : (
                   <div></div>
               )}
 
-                
              
           </Map>
       </div>

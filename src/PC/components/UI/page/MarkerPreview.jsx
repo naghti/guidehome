@@ -10,10 +10,12 @@ const MarkerPreview = ({marker,to}) => {
 
     let other = []
     Object.keys(marker).map(key => {
+        console.log(marker)
         if(
             marker[key] != id &&
             marker[key] != name &&
             marker[key] != photo &&
+            key != 'путь' &&
             marker[key] != coordinats
         ){
             other.push(marker[key])

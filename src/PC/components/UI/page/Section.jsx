@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Section.module.css'
 import {useNavigate} from "react-router-dom";
+import { Translate, Translator } from 'react-auto-translate/lib/commonjs';
 const Section = ({src,name,section}) => {
     const router = useNavigate()
 
